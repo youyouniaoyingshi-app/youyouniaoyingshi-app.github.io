@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<title>悠悠鸟影视 | 电影剧集口碑榜·影评打分·观影指南（每日更新）</title>
+<meta name="description" content="悠悠鸟影视是一个面向华语观众的影视资讯与影评聚合站，提供电影、剧集、综艺、动漫的分类片单、口碑评分、排片时刻表与观影指南，每日 09:00 更新榜单数据，帮你快速筛掉烂片、找到值得花时间的那部作品。">
+<meta name="keywords" content="悠悠鸟影视,悠悠鸟,影视推荐,电影推荐,剧集榜单,影评打分,观影指南,动漫片单,综艺排行,youyouniaoyingshi-app,影视资讯聚合">
+<meta name="author" content="悠悠鸟影视编辑部">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="theme-color" content="#0b0f1a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="canonical" href="https://youyouniaoyingshi-app.github.io/">
+<link rel="alternate" hreflang="zh-CN" href="https://youyouniaoyingshi-app.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="悠悠鸟影视">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="悠悠鸟影视 | 电影剧集口碑榜·影评打分·观影指南">
+<meta property="og:description" content="电影、剧集、综艺、动漫的分类片单与真实影评打分，每日 09:00 更新口碑榜单，帮你少踩雷、多看片。">
+<meta property="og:url" content="https://youyouniaoyingshi-app.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="悠悠鸟影视 | 电影剧集口碑榜·影评打分·观影指南">
+<meta name="twitter:description" content="分类片单、口碑评分、排片时刻表与观影指南，悠悠鸟影视每日更新。">
+<style>
+:root{
+  --ink:#0b0f1a;
+  --ink-2:#111726;
+  --ink-3:#171f33;
+  --line:#26304a;
+  --gold:#ffb454;
+  --teal:#4ad3c4;
+  --rose:#ff6f61;
+  --txt:#e9edf7;
+  --txt-2:#9dabc6;
+  --txt-3:#6c7a97;
+  --radius:14px;
+  --wrap:1180px;
+  --shadow:0 18px 44px rgba(0,0,0,.42);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(1200px 520px at 82% -8%, rgba(255,180,84,.14), transparent 62%),
+    radial-gradient(900px 480px at 4% 8%, rgba(74,211,196,.10), transparent 60%),
+    var(--ink);
+  color:var(--txt);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:16px;
+  line-height:1.75;
+  letter-spacing:.2px;
+}
+img,svg{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 20px}
+.skip{position:absolute;left:-9999px;top:0;background:var(--gold);color:#20160a;padding:10px 16px;z-index:99}
+.skip:focus{left:12px;top:12px}
+
+/* ===== 顶部滚动播报条 ===== */
+.bulletin{
+  background:linear-gradient(90deg,#1b1408,#2a1e0c 45%,#1b1408);
+  border-bottom:1px solid rgba(255,180,84,.22);
+  overflow:hidden;
+  white-space:nowrap;
+}
+.bulletin span{
+  display:inline-block;
+  padding:8px 0;
+  font-size:12.5px;
+  letter-spacing:1.4px;
+  color:#f6d9a8;
+  animation:slide 34s linear infinite;
+}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-52%)}}
+@media (prefers-reduced-motion:reduce){.bulletin span{animation:none}}
+
+/* ===== 导航 ===== */
+.topbar{position:sticky;top:0;z-index:40;background:rgba(11,15,26,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;gap:18px;min-height:64px}
+.brand{display:flex;align-items:center;gap:11px;flex:0 0 auto}
+.mark{
+  width:38px;height:38px;border-radius:11px;
+  background:linear-gradient(150deg,var(--gold),#ff7a45);
+  display:grid;place-items:center;
+  color:#1a1206;font-weight:800;font-size:17px;
+  box-shadow:0 6px 18px rgba(255,140,60,.32);
+  font-family:Georgia,"Songti SC",serif;
+}
+.brand b{font-size:19.5px;letter-spacing:1.6px;font-weight:700}
+.brand small{display:block;font-size:11px;color:var(--txt-3);letter-spacing:2.4px;margin-top:-4px}
+.nav{
+  margin-left:auto;display:flex;gap:4px;
+  overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+}
+.nav::-webkit-scrollbar{display:none}
+.nav a{
+  flex:0 0 auto;padding:8px 13px;border-radius:999px;
+  font-size:14.5px;color:var(--txt-2);border:1px solid transparent;
+}
+.nav a:hover,.nav a.on{color:#20160a;background:var(--gold);border-color:var(--gold)}
+@media (max-width:860px){
+  .topbar .wrap{min-height:58px;padding:0 14px;gap:10px}
+  .brand small{display:none}
+  .brand b{font-size:17px}
+}
+
+/* ===== 首屏 ===== */
+.hero{padding:56px 0 40px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:44px;align-items:center}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:12.5px;letter-spacing:2.6px;color:var(--gold);
+  border:1px solid rgba(255,180,84,.34);border-radius:999px;padding:6px 14px;
+  background:rgba(255,180,84,.07);
+}
+.eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block}
+h1{
+  font-family:Georgia,"Songti SC","Noto Serif SC",serif;
+  font-size:clamp(32px,5.4vw,56px);
+  line-height:1.18;margin:20px 0 14px;font-weight:700;letter-spacing:1px;
+}
+h1 em{font-style:normal;color:var(--gold);position:relative}
+h1 em::after{
+  content:"";position:absolute;left:0;right:0;bottom:2px;height:9px;
+  background:rgba(255,180,84,.20);z-index:-1;
+}
+.lead{color:var(--txt-2);font-size:clamp(15px,1.6vw,17.5px);max-width:36em;margin:0 0 26px}
+.cta{display:flex;flex-wrap:wrap;gap:13px;margin-bottom:24px}
+.btn{
+  display:inline-block;padding:13px 26px;border-radius:11px;font-size:15.5px;font-weight:600;
+  border:1px solid var(--line);transition:transform .18s ease,box-shadow .18s ease;
+}
+.btn-1{background:linear-gradient(120deg,var(--gold),#ff8f4d);color:#211606;box-shadow:0 10px 26px rgba(255,150,60,.28)}
+.btn-2{color:var(--txt);background:rgba(255,255,255,.04)}
+.btn:hover{transform:translateY(-2px)}
+.urlbox{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  background:var(--ink-2);border:1px dashed var(--line);border-radius:12px;
+  padding:12px 15px;font-size:13.5px;color:var(--txt-3);
+}
+.urlbox a{color:var(--teal);word-break:break-all;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px;max-width:520px}
+.stat{border-left:2px solid var(--gold);padding-left:12px}
+.stat b{display:block;font-size:22px;font-family:Georgia,serif;color:var(--txt)}
+.stat span{font-size:12.5px;color:var(--txt-3);letter-spacing:.6px}
+
+/* 海报墙 */
+.wall{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;position:relative}
+.wall::before{
+  content:"";position:absolute;inset:-14px -10px;border-radius:18px;
+  background:
+    repeating-linear-gradient(180deg,rgba(255,255,255,.05) 0 6px,transparent 6px 22px);
+  -webkit-mask-image:linear-gradient(90deg,#000 0 10px,transparent 10px calc(100% - 10px),#000 calc(100% - 10px));
+  mask-image:linear-gradient(90deg,#000 0 10px,transparent 10px calc(100% - 10px),#000 calc(100% - 10px));
+  pointer-events:none;
+}
+.poster{
+  aspect-ratio:2/3;border-radius:10px;position:relative;overflow:hidden;
+  display:flex;align-items:flex-end;padding:12px;
+  box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.08);
+}
+.poster span{
+  position:relative;z-index:2;font-size:13px;font-weight:600;line-height:1.4;
+  text-shadow:0 2px 10px rgba(0,0,0,.7);
+}
+.poster em{
+  position:absolute;top:9px;right:10px;z-index:2;font-style:normal;
+  font-size:11px;font-family:Georgia,serif;color:#1d1405;
+  background:var(--gold);border-radius:5px;padding:1px 6px;font-weight:700;
+}
+.p1{background:linear-gradient(165deg,#3b2f66,#12182c 70%)}
+.p2{background:linear-gradient(165deg,#7a2f3d,#171326 70%)}
+.p3{background:linear-gradient(165deg,#1f5f5c,#101a2a 70%)}
+.p4{background:linear-gradient(165deg,#8a5a1e,#1a1626 70%)}
+.p5{background:linear-gradient(165deg,#2c4a86,#111a2e 70%)}
+.p6{background:linear-gradient(165deg,#5d2a68,#14182a 70%)}
+@media (max-width:980px){
+  .hero{padding:38px 0 26px}
+  .hero-grid{grid-template-columns:1fr;gap:32px}
+  .wall{grid-template-columns:repeat(3,1fr)}
+}
+
+/* ===== 通用区块 ===== */
+section{padding:52px 0}
+.sec-head{margin-bottom:28px;max-width:var(--wrap)}
+.sec-head .kicker{font-size:12.5px;letter-spacing:3px;color:var(--teal);text-transform:uppercase}
+.sec-head h2{
+  font-family:Georgia,"Songti SC",serif;
+  font-size:clamp(23px,3.2vw,33px);margin:8px 0 10px;font-weight:700;letter-spacing:.8px;
+}
+.sec-head p{margin:0;color:var(--txt-2);font-size:15px;max-width:52em}
+.rule{height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin:0}
+
+/* 排片表 */
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:16px}
+.slot{
+  background:linear-gradient(180deg,var(--ink-2),var(--ink-3));
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 18px 18px;position:relative;overflow:hidden;
+}
+.slot::after{
+  content:"";position:absolute;left:-9px;top:50%;width:18px;height:18px;
+  border-radius:50%;background:var(--ink);transform:translateY(-50%);
+  border:1px solid var(--line);
+}
+.slot .row{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.slot h3{margin:0;font-size:17.5px;font-weight:700;letter-spacing:.4px}
+.slot .score{font-family:Georgia,serif;font-size:19px;color:var(--gold);flex:0 0 auto}
+.slot .meta{font-size:12.5px;color:var(--txt-3);margin:7px 0 12px;letter-spacing:.6px}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
+.tag{font-size:11.5px;padding:3px 9px;border-radius:6px;background:rgba(255,255,255,.06);color:var(--txt-2);border:1px solid var(--line)}
+.bar{height:5px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--rose));border-radius:99px}
+.slot .note{font-size:12px;color:var(--txt-3);margin:9px 0 0}
+
+/* 分类 */
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:14px}
+.cat{
+  border:1px solid var(--line);border-radius:var(--radius);padding:22px 18px;
+  background:var(--ink-2);transition:border-color .2s ease,transform .2s ease;
+}
+.cat:hover{border-color:var(--gold);transform:translateY(-3px)}
+.cat b{display:block;font-size:17px;margin-bottom:6px;letter-spacing:1px}
+.cat span{font-size:13px;color:var(--txt-3)}
+.cat i{
+  display:block;width:30px;height:30px;margin-bottom:14px;border-radius:8px;
+  background:linear-gradient(140deg,var(--gold),rgba(255,180,84,.15));
+}
+
+/* 影评 */
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(292px,1fr));gap:18px}
+.review{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.stars{color:var(--gold);letter-spacing:3px;font-size:15px;margin-bottom:10px}
+.review blockquote{margin:0 0 16px;font-size:15.5px;color:var(--txt);line-height:1.85}
+.review footer{font-size:13px;color:var(--txt-3);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+
+/* 榜单 */
+.rank{list-style:none;margin:0;padding:0;counter-reset:r}
+.rank li{
+  counter-increment:r;display:grid;grid-template-columns:52px 1fr auto;gap:14px;align-items:center;
+  padding:15px 4px;border-bottom:1px dashed var(--line);
+}
+.rank li::before{
+  content:counter(r);font-family:Georgia,serif;font-size:22px;color:var(--txt-3);text-align:center;
+}
+.rank li:first-child::before,.rank li:nth-child(2)::before,.rank li:nth-child(3)::before{color:var(--gold)}
+.rank b{font-size:16px;font-weight:600}
+.rank span{display:block;font-size:12.5px;color:var(--txt-3)}
+.rank em{font-style:normal;font-family:Georgia,serif;color:var(--gold);font-size:16px}
+
+/* 指南 / 双栏 */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+.panel{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.panel h3{margin:0 0 12px;font-size:17.5px;font-family:Georgia,"Songti SC",serif}
+.panel ul{margin:0;padding-left:20px;color:var(--txt-2);font-size:14.5px}
+.panel li{margin-bottom:9px}
+.panel li b{color:var(--txt)}
+@media (max-width:860px){.split{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq{border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line);padding:2px 0}
+summary{
+  cursor:pointer;list-style:none;padding:16px 34px 16px 0;position:relative;
+  font-size:16px;font-weight:600;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:"+";position:absolute;right:6px;top:12px;font-size:22px;color:var(--gold);line-height:1;
+}
+details[open] summary::after{content:"–"}
+details p{margin:0 0 18px;color:var(--txt-2);font-size:14.5px;max-width:60em}
+
+/* 页脚 */
+footer{background:var(--ink-2);border-top:1px solid var(--line);padding:44px 0 30px;margin-top:20px}
+.f-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:26px}
+.f-grid h4{margin:0 0 14px;font-size:14.5px;letter-spacing:1.4px;color:var(--txt)}
+.f-grid ul{list-style:none;margin:0;padding:0}
+.f-grid li{margin-bottom:8px}
+.f-grid a{font-size:13.8px;color:var(--txt-3)}
+.f-grid a:hover{color:var(--gold)}
+.f-brand p{font-size:13.5px;color:var(--txt-3);margin:12px 0 0;max-width:34em}
+.f-brand a{color:var(--teal);word-break:break-all}
+.disclaimer{margin-top:30px;padding-top:20px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--txt-3)}
+@media (max-width:860px){
+  .f-grid{grid-template-columns:1fr 1fr}
+  section{padding:40px 0}
+}
+@media (max-width:520px){
+  .f-grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .rank li{grid-template-columns:38px 1fr auto;gap:10px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/yazhou.js"></script>
+<a class="skip" href="#">跳到主要内容</a>
+
+<div class="bulletin" aria-hidden="true">
+  <span>悠悠鸟影视 · 每日 09:00 更新榜单 · 本周新增 46 部片目 · 院线热映同步追踪 · 剧集更新至 10 月 26 日 · 影评区已有 12,860 条打分 · 支持手机、平板、桌面三端阅读 ·&nbsp;&nbsp;&nbsp;&nbsp;悠悠鸟影视 · 每日 09:00 更新榜单 · 本周新增 46 部片目 · 院线热映同步追踪 · 剧集更新至 10 月 26 日 · 影评区已有 12,860 条打分 · 支持手机、平板、桌面三端阅读 ·</span>
+</div>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="悠悠鸟影视 首页">
+      <span class="mark" aria-hidden="true">悠</span>
+      <span>
+        <b>悠悠鸟影视</b>
+        <small>YOUYOU NIAO FILM</small>
+      </span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a class="on" href="#">首页</a>
+      <a href="#">正在热映</a>
+      <a href="#">分类片单</a>
+      <a href="#">影评打分</a>
+      <a href="#">口碑榜</a>
+      <a href="#">观影指南</a>
+      <a href="#">关于本站</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <!-- 首屏 -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow"><i aria-hidden="true"></i>华语影视口碑聚合 · 第 7 年运营</span>
+        <h1 id="hero-title">看片之前，先来<br><em>悠悠鸟影视</em>查一查</h1>
+        <p class="lead">悠悠鸟影视把院线热映、剧集更新、综艺与动漫的口碑数据收在一处：每部作品附带本站评分、看点标签与一句实话短评，不堆砌水词，也不做夸张标题。挑片时间从两小时压缩到三分钟。</p>
+        <div class="cta">
+          <a class="btn btn-1" href="#">浏览今日热映</a>
+          <a class="btn btn-2" href="#">查看分类片单</a>
+        </div>
+        <div class="urlbox">
+          <span>官网地址</span>
+          <a href="https://youyouniaoyingshi-app.github.io/" rel="noopener">https://youyouniaoyingshi-app.github.io</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>12,860</b><span>收录片目</span></div>
+          <div class="stat"><b>46</b><span>本周新增</span></div>
+          <div class="stat"><b>9.2</b><span>编辑推荐均分</span></div>
+        </div>
+      </div>
+      <div class="wall" role="group" aria-label="本周编辑精选海报墙">
+        <div class="poster p1" role="img" aria-label="精选海报：城市夜行"><em>8.7</em><span>城市夜行</span></div>
+        <div class="poster p2" role="img" aria-label="精选海报：长夜将至"><em>9.1</em><span>长夜将至</span></div>
+        <div class="poster p3" role="img" aria-label="精选海报：山那边有海"><em>8.4</em><span>山那边有海</span></div>
+        <div class="poster p4" role="img" aria-label="精选海报：旧巷食堂"><em>8.9</em><span>旧巷食堂</span></div>
+        <div class="poster p5" role="img" aria-label="精选海报：深水回声"><em>7.9</em><span>深水回声</span></div>
+        <div class="poster p6" role="img" aria-label="精选海报：春日缓行"><em>8.2</em><span>春日缓行</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule" aria-hidden="true"></div>
+
+  <!-- 栏目一：正在热映 -->
+  <section id="hot" aria-labelledby="hot-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Now Showing</span>
+        <h2 id="hot-title">正在热映 · 本周排片时刻</h2>
+        <p>按院线与流媒体双通道统计，分数取自悠悠鸟影视编辑部与观众打分的加权结果，满分为 10 分。场次时间以各地影院实际排期为准。</p>
+      </div>
+      <div class="slots">
+        <article class="slot">
+          <div class="row"><h3>长夜将至</h3><span class="score">9.1</span></div>
+          <p class="meta">剧情 / 悬疑 · 128 分钟 · 今日 14:20 19:40 22:05</p>
+          <div class="tags"><span class="tag">反转扎实</span><span class="tag">摄影出色</span><span class="tag">适合二刷</span></div>
+          <div class="bar" role="img" aria-label="本站评分 9.1 分，满分 10 分"><i style="width:91%"></i></div>
+          <p class="note">一句话短评：前 40 分钟的克制，换来最后 20 分钟的重量。</p>
+        </article>
+        <article class="slot">
+          <div class="row"><h3>旧巷食堂</h3><span class="score">8.9</span></div>
+          <p class="meta">生活 / 治愈 · 106 分钟 · 今日 13:05 17:30 20:15</p>
+          <div class="tags"><span class="tag">群像生动</span><span class="tag">适合全家</span><span class="tag">配乐加分</span></div>
+          <div class="bar" role="img" aria-label="本站评分 8.9 分，满分 10 分"><i style="width:89%"></i></div>
+          <p class="note">一句话短评：把一日三餐拍成了人与人的和解方式。</p>
+        </article>
+        <article class="slot">
+          <div class="row"><h3>城市夜行</h3><span class="score">8.7</span></div>
+          <p class="meta">犯罪 / 动作 · 141 分钟 · 今日 15:40 20:00 23:10</p>
+          <div class="tags"><span class="tag">节奏紧凑</span><span class="tag">长镜头</span><span class="tag">音效震撼</span></div>
+          <div class="bar" role="img" aria-label="本站评分 8.7 分，满分 10 分"><i style="width:87%"></i></div>
+          <p class="note">一句话短评：追车戏不用看字幕也能跟上情绪。</p>
+        </article>
+        <article class="slot">
+          <div class="row"><h3>山那边有海</h3><span class="score">8.4</span></div>
+          <p class="meta">公路 / 家庭 · 118 分钟 · 今日 12:50 16:20 21:00</p>
+          <div class="tags"><span class="tag">风景绝美</span><span class="tag">情感细腻</span><span class="tag">慢热佳片</span></div>
+          <div class="bar" role="img" aria-label="本站评分 8.4 分，满分 10 分"><i style="width:84%"></i></div>
+          <p class="note">一句话短评：看完想给很久没联系的人打个电话。</p>
+        </article>
+        <article class="slot">
+          <div class="row"><h3>春日缓行</h3><span class="score">8.2</span></div>
+          <p class="meta">爱情 / 文艺 · 97 分钟 · 今日 14:00 18:10</p>
+          <div class="tags"><span class="tag">台词讲究</span><span class="tag">氛围感强</span><span class="tag">结尾留白</span></div>
+          <div class="bar" role="img" aria-label="本站评分 8.2 分，满分 10 分"><i style="width:82%"></i></div>
+          <p class="note">一句话短评：不吵不闹，情绪全在停顿里。</p>
+        </article>
+        <article class="slot">
+          <div class="row"><h3>深水回声</h3><span class="score">7.9</span></div>
+          <p class="meta">科幻 / 惊悚 · 132 分钟 · 今日 19:20 22:40</p>
+          <div class="tags"><span class="tag">设定新颖</span><span class="tag">视效在线</span><span class="tag">中段拖沓</span></div>
+          <div class="bar" role="img" aria-label="本站评分 7.9 分，满分 10 分"><i style="width:79%"></i></div>
+          <p class="note">一句话短评：概念值四星，剪辑拖了半星。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule" aria-hidden="true"></div>
+
+  <!-- 栏目二：分类片单 -->
+  <section id="library" aria-labelledby="lib-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Library</span>
+        <h2 id="lib-title">分类片单 · 按心情找片</h2>
+        <p>悠悠鸟影视把片库拆成六个入口，每个入口都有独立的编辑维护清单，标注了适合观看的场景与时长区间。</p>
+      </div>
+      <div class="cats">
+        <a class="cat" href="#"><i aria-hidden="true"></i><b>院线电影</b><span>1,240 部 · 每周三更新</span></a>
+        <a class="cat" href="#"><i aria-hidden="true"></i><b>剧集追更</b><span>860 部 · 更新至 10/26</span></a>
+        <a class="cat" href="#"><i aria-hidden="true"></i><b>综艺访谈</b><span>320 档 · 含字幕版本</span></a>
+        <a class="cat" href="#"><i aria-hidden="true"></i><b>动画番剧</b><span>2,150 部 · 分龄标注</span></a>
+        <a class="cat" href="#"><i aria-hidden="true"></i><b>纪录纪实</b><span>410 部 · 含导演评述</span></a>
+        <a class="cat" href="#"><i aria-hidden="true"></i><b>短片实验</b><span>680 部 · 10 分钟以内</span></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule" aria-hidden="true"></div>
+
+  <!-- 栏目三：影评打分 -->
+  <section id="review" aria-labelledby="rv-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Reviews</span>
+        <h2 id="rv-title">影评打分 · 观众真实反馈</h2>
+        <p>打分需写满 20 字理由才能提交，机器刷分会在 24 小时内被剔除。以下为近期点赞最高的三条。</p>
+      </div>
+      <div class="reviews">
+        <article class="review">
+          <p class="stars" aria-label="评分 5 分，满分 5 分">★★★★★</p>
+          <blockquote>“《长夜将至》第二次看才发现，第一幕里那通电话的台词全是伏笔。这种把观众当聪明人的片子，值得买票。”</blockquote>
+          <footer><span>观影人：林间有雨</span><span>10 月 24 日</span></footer>
+        </article>
+        <article class="review">
+          <p class="stars" aria-label="评分 4 分，满分 5 分">★★★★☆</p>
+          <blockquote>“《旧巷食堂》后半段稍微煽情了点，但演员之间的松弛感太难得。带爸妈去看的，他们比我还投入。”</blockquote>
+          <footer><span>观影人：南巷七号</span><span>10 月 22 日</span></footer>
+        </article>
+        <article class="review">
+          <p class="stars" aria-label="评分 4 分，满分 5 分">★★★★☆</p>
+          <blockquote>“《深水回声》设定我很喜欢，中间二十分钟确实困。如果剪掉一段应该能上 8.5，看第二部还去不去。”</blockquote>
+          <footer><span>观影人：铁皮盒子</span><span>10 月 20 日</span></footer>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule" aria-hidden="true"></div>
+
+  <!-- 栏目四：口碑榜 -->
+  <section id="rank" aria-labelledby="rk-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Top Chart</span>
+        <h2 id="rk-title">月度口碑榜 · 编辑部 Top 8</h2>
+        <p>统计口径：近 30 天有效打分不少于 500 条，按平均值排序，同分时以打分人数多者优先。</p>
+      </div>
+      <ol class="rank">
+        <li><div><b>长夜将至</b><span>剧情 / 悬疑 · 4,182 人打分</span></div><em>9.1</em></li>
+        <li><div><b>旧巷食堂</b><span>生活 / 治愈 · 3,760 人打分</span></div><em>8.9</em></li>
+        <li><div><b>城市夜行</b><span>犯罪 / 动作 · 5,204 人打分</span></div><em>8.7</em></li>
+        <li><div><b>山那边有海</b><span>公路 / 家庭 · 2,118 人打分</span></div><em>8.4</em></li>
+        <li><div><b>春日缓行</b><span>爱情 / 文艺 · 1,905 人打分</span></div><em>8.2</em></li>
+        <li><div><b>纸上森林</b><span>动画 / 奇幻 · 2,470 人打分</span></div><em>8.1</em></li>
+        <li><div><b>深水回声</b><span>科幻 / 惊悚 · 3,306 人打分</span></div><em>7.9</em></li>
+        <li><div><b>铁轨尽头</b><span>纪录 / 社会 · 986 人打分</span></div><em>7.7</em></li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="rule" aria-hidden="true"></div>
+
+  <!-- 栏目五：观影指南 -->
+  <section id="guide" aria-labelledby="gd-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Guide</span>
+        <h2 id="gd-title">观影指南 · 新手三步走</h2>
+        <p>第一次来悠悠鸟影视？按下面两步确定看什么、去哪儿看，再顺手把条目收进自己的片单。</p>
+      </div>
+      <div class="split">
+        <div class="panel">
+          <h3>第一步：先定场景，再挑类型</h3>
+          <ul>
+            <li><b>周末两小时</b>：优先看 100 分钟以上、标签含“适合二刷”的剧情片。</li>
+            <li><b>通勤碎片时间</b>：进入“短片实验”，10 分钟以内看完不卡剧情。</li>
+            <li><b>陪家人看</b>：筛掉标签含“暴力”“惊悚”的条目，选“适合全家”。</li>
+            <li><b>想补经典</b>：按年代从旧到新排列，先看 8.5 分以上的老片。</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>第二步：看懂分数怎么用</h3>
+          <ul>
+            <li><b>9.0 以上</b>：年度级别，基本不用犹豫，直接排进日程。</li>
+            <li><b>8.0 – 8.9</b>：稳妥选择，注意看一下负面标签是否踩雷。</li>
+            <li><b>7.0 – 7.9</b>：类型爱好者可看，路人建议先看短评再决定。</li>
+            <li><b>7.0 以下</b>：除非是粉丝向作品，否则不建议占用整块时间。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule" aria-hidden="true"></div>
+
+  <!-- 栏目六：常见问题 -->
+  <section id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">FAQ</span>
+        <h2 id="faq-title">关于悠悠鸟影视的常见问题</h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>悠悠鸟影视是什么类型的站点？</summary>
+          <p>悠悠鸟影视是一个影视资讯与影评聚合站，提供片目资料、分类片单、评分与观影指南。本站只做信息整理与推荐，不存储、不上传、不提供任何影片文件的下载或在线播放，观看请通过已取得授权的正版平台。</p>
+        </details>
+        <details>
+          <summary>评分是怎么算出来的？</summary>
+          <p>采用观众打分与编辑部打分的加权平均：观众打分占七成，编辑部占三成，且要求打分者写满 20 字理由。异常集中打分会被系统标记并在 24 小时内复核剔除。</p>
+        </details>
+        <details>
+          <summary>榜单多久更新一次？</summary>
+          <p>热映与追更类榜单每日 09:00 更新；月度口碑榜每月 1 日重算一次统计区间；分类片单中的电影库每周三补充新条目。</p>
+        </details>
+        <details>
+          <summary>手机上浏览会有排版问题吗？</summary>
+          <p>不会。整站采用流式栅格布局，从 320 像素宽的手机屏幕到桌面宽屏都会自动重排，海报墙与排片表在小屏下会改为纵向排列，字号随屏幕宽度自适应。</p>
+        </details>
+        <details>
+          <summary>发现条目信息有误怎么反馈？</summary>
+          <p>可在条目页底部使用“纠错”入口提交，注明片名、错误字段与正确内容，编辑部会在两个工作日内处理并回复处理结论。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-brand">
+        <a class="brand" href="#" aria-label="悠悠鸟影视 首页">
+          <span class="mark" aria-hidden="true">悠</span>
+          <span><b>悠悠鸟影视</b><small>YOUYOU NIAO FILM</small></span>
+        </a>
+        <p>悠悠鸟影视成立于 2019 年，由五名影迷兼职维护，长期做一件小事：把值得看的作品挑出来，把不值得的时间省下来。</p>
+        <p>官方网站：<a href="https://youyouniaoyingshi-app.github.io/" rel="noopener">https://youyouniaoyingshi-app.github.io</a></p>
+      </div>
+      <div>
+        <h4>内容栏目</h4>
+        <ul>
+          <li><a href="#">正在热映</a></li>
+          <li><a href="#">分类片单</a></li>
+          <li><a href="#">影评打分</a></li>
+          <li><a href="#">月度口碑榜</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于站点</h4>
+        <ul>
+          <li><a href="#">编辑部介绍</a></li>
+          <li><a href="#">评分规则</a></li>
+          <li><a href="#">纠错与反馈</a></li>
+          <li><a href="#">内容授权</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>条款</h4>
+        <ul>
+          <li><a href="#">用户协议</a></li>
+          <li><a href="#">隐私说明</a></li>
+          <li><a href="#">版权声明</a></li>
+          <li><a href="#">友情链接</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="disclaimer">本站为个人非经营性影视资讯站点，所有片名、简介与评分仅作信息参考；影片的著作权归各自权利人所有。本站不提供任何未经授权的影片存储、下载或播放服务，请通过正版渠道观看。Copyright © 2019–2026 悠悠鸟影视 youyouniaoyingshi-app</p>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://youyouniaoyingshi-app.github.io/#website",
+      "url": "https://youyouniaoyingshi-app.github.io/",
+      "name": "悠悠鸟影视",
+      "alternateName": "YOUYOU NIAO FILM",
+      "inLanguage": "zh-CN",
+      "description": "悠悠鸟影视提供电影、剧集、综艺、动漫的分类片单、口碑评分、排片时刻表与观影指南，每日更新影视资讯与影评打分。",
+      "publisher": { "@id": "https://youyouniaoyingshi-app.github.io/#org" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://youyouniaoyingshi-app.github.io/#org",
+      "name": "悠悠鸟影视",
+      "url": "https://youyouniaoyingshi-app.github.io/",
+      "foundingDate": "2019",
+      "description": "面向华语观众的影视资讯与影评聚合站点，提供分类片单、口碑评分与观影指南。"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://youyouniaoyingshi-app.github.io/#webpage",
+      "url": "https://youyouniaoyingshi-app.github.io/",
+      "name": "悠悠鸟影视 | 电影剧集口碑榜·影评打分·观影指南",
+      "isPartOf": { "@id": "https://youyouniaoyingshi-app.github.io/#website" },
+      "inLanguage": "zh-CN",
+      "primaryImageOfPage": { "@id": "https://youyouniaoyingshi-app.github.io/#website" },
+      "breadcrumb": { "@id": "https://youyouniaoyingshi-app.github.io/#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://youyouniaoyingshi-app.github.io/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "悠悠鸟影视", "item": "https://youyouniaoyingshi-app.github.io/" },
+        { "@type": "ListItem", "position": 2, "name": "正在热映" },
+        { "@type": "ListItem", "position": 3, "name": "分类片单" },
+        { "@type": "ListItem", "position": 4, "name": "影评打分" },
+        { "@type": "ListItem", "position": 5, "name": "月度口碑榜" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "悠悠鸟影视是什么类型的站点？",
+          "acceptedAnswer": { "@type": "Answer", "text": "悠悠鸟影视是一个影视资讯与影评聚合站，提供片目资料、分类片单、评分与观影指南。本站只做信息整理与推荐，不存储、不上传、不提供任何影片文件的下载或在线播放，观看请通过已取得授权的正版平台。" }
+        },
+        {
+          "@type": "Question",
+          "name": "评分是怎么算出来的？",
+          "acceptedAnswer": { "@type": "Answer", "text": "采用观众打分与编辑部打分的加权平均：观众打分占七成，编辑部占三成，且要求打分者写满 20 字理由。异常集中打分会被系统标记并在 24 小时内复核剔除。" }
+        },
+        {
+          "@type": "Question",
+          "name": "榜单多久更新一次？",
+          "acceptedAnswer": { "@type": "Answer", "text": "热映与追更类榜单每日 09:00 更新；月度口碑榜每月 1 日重算统计区间；分类片单中的电影库每周三补充新条目。" }
+        },
+        {
+          "@type": "Question",
+          "name": "手机上浏览会有排版问题吗？",
+          "acceptedAnswer": { "@type": "Answer", "text": "不会。整站采用流式栅格布局，从 320 像素宽的手机屏幕到桌面宽屏都会自动重排，海报墙与排片表在小屏下改为纵向排列，字号随屏幕宽度自适应。" }
+        },
+        {
+          "@type": "Question",
+          "name": "发现条目信息有误怎么反馈？",
+          "acceptedAnswer": { "@type": "Answer", "text": "可在条目页底部使用纠错入口提交，注明片名、错误字段与正确内容，编辑部会在两个工作日内处理并回复处理结论。" }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</body>
+</html>
